@@ -5,19 +5,24 @@
   --white: #ffffff;
 }
 
+.top-bar {
+  height: 50px;
+  background-color: #5670b0;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: var(--white);
   color: #333;
 }
-
 .hero {
-  background-image: url("fox.JPG");
+  background-image: url("../img/hero3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  height: 350px;
 }
 
 .hero.small {
