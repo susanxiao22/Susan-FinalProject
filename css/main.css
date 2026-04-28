@@ -1,0 +1,122 @@
+:root {
+  --blue: #1e3a8a;
+  --light-blue: #3b82f6;
+  --yellow: #facc15;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--white);
+  color: #333;
+}
+
+/* Hero Header */
+.hero {
+  background: url('../images/header.jpg') center/cover no-repeat;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero.small {
+  padding: 40px 20px;
+}
+
+/* Nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 20px;
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Filters */
+.filters {
+  text-align: center;
+  margin: 20px;
+}
+
+.filters button {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background: var(--yellow);
+  color: black;
+}
+
+/* Modal */
+#lightbox {
+  display: none;
+  position: fixed;
+  background: rgba(0,0,0,0.9);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 80%;
+}
+
+/* Content */
+.content {
+  padding: 20px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  background: var(--yellow);
+  border: none;
+  padding: 10px;
+}

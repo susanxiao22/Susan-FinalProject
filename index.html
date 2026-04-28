@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Responsive Layouts</title>
+  <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="icon.png">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Fleur+De+Leah&family=MonteCarlo&family=Parisienne&family=Princess+Sofia&family=Stalemate&display=swap" rel="stylesheet">
+</head>
+
+<header class="hero">
+  <nav>
+    <h1>My Portfolio</h1>
+    <ul>
+      <li><a href="index.html">Artwork</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hero-text">
+    <h2>Creative Works</h2>
+    <p>Exploring color, form, and imagination</p>
+  </div>
+</header>
+
+<section class="filters">
+  <button onclick="filterSelection('all')">All Works</button>
+  <button onclick="filterSelection('digital')">Digital</button>
+  <button onclick="filterSelection('traditional')">Traditional</button>
+</section>
+
+<section class="gallery">
+
+  <div class="art digital">
+    <img src="img/kiyomi.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art digital">
+    <img src="img/sase.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art digital">
+    <img src="img/taiyubluesketch.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art digital">
+    <img src="img/taiyusketch.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/aquarium.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/birdie.JPG" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/cat.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/dragoncard.png" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/furina.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/geese.jpg" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/lanterns.PNG" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/miku.JPG" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/taiyu.JPG" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/taiyustage.JPG" onclick="openModal(this.src)">
+  </div>
+
+  <div class="art traditional">
+    <img src="img/unicorn.JPG" onclick="openModal(this.src)">
+  </div>
+
+
+
+</section>
+
+<!-- Modal -->
+<div id="lightbox" onclick="closeModal()">
+  <img id="lightbox-img">
+</div>
+
+  <script src="js/main.js"></script>
+</body>
+
