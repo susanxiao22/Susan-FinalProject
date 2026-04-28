@@ -12,12 +12,12 @@ body {
   color: #333;
 }
 
-/* Hero Header */
 .hero {
-  background: url('../images/header.jpg') center/cover no-repeat;
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
+  background-image: url("fox.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .hero.small {
