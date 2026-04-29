@@ -302,37 +302,75 @@ footer {
 }
 
 /* Close button */
+/* =========================
+   CLOSE BUTTON (X)
+   ========================= */
+
 #close-btn {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 30px;
-  font-size: 40px;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
   color: white;
+  font-size: 40px;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 10002;
+
+  transition: color 0.2s ease;
 }
 
-/* Arrows */
+/* hover effect */
+#close-btn:hover {
+  color: var(--yellow);
+}
+
+/* keyboard accessibility */
+#close-btn:focus-visible {
+  outline: 2px solid var(--yellow);
+  border-radius: 6px;
+}
+
+/* =========================
+   LIGHTBOX ARROWS (SIDES)
+   ========================= */
+
 .arrow {
-  position: absolute;
+  position: fixed;        /* key change */
   top: 50%;
   transform: translateY(-50%);
-  font-size: 50px;
+  z-index: 10001;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
   color: white;
+  font-size: 60px;
   cursor: pointer;
   user-select: none;
-  padding: 10px;
 }
 
+/* left side */
 .arrow.left {
   left: 20px;
 }
 
+/* right side */
 .arrow.right {
   right: 20px;
 }
 
-/* Hover effect */
-.arrow:hover, #close-btn:hover {
+/* hover effect */
+.arrow:hover {
   color: var(--yellow);
+}
+
+/* keyboard focus */
+.arrow:focus-visible {
+  outline: 2px solid var(--yellow);
+  border-radius: 6px;
 }

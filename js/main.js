@@ -54,6 +54,9 @@ function openModal(imgElement) {
   showImage();
 
   lightbox.style.display = "flex";
+
+  // accessibility: move focus into lightbox
+  document.getElementById("close-btn")?.focus();
 }
 
 function showImage() {
@@ -71,12 +74,14 @@ function changeImage(direction) {
   // Loop around
   if (currentIndex < 0) currentIndex = images.length - 1;
   if (currentIndex >= images.length) currentIndex = 0;
+
   showImage();
 }
 
 function closeModal() {
   document.getElementById("lightbox").style.display = "none";
 }
+
 
 // =========================
 // SMOOTH SCROLL (ANCHORS)
@@ -114,6 +119,10 @@ artworks.forEach((art, index) => {
   observer.observe(art);
 });
 
+
+// =========================
+// KEYBOARD CONTROLS (LIGHTBOX)
+// =========================
 document.addEventListener("keydown", function(e) {
   const lightbox = document.getElementById("lightbox");
 
@@ -121,5 +130,59 @@ document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowRight") changeImage(1);
     if (e.key === "ArrowLeft") changeImage(-1);
     if (e.key === "Escape") closeModal();
+  }
+});
+
+
+// =========================
+// ACCESSIBLE EVENT HANDLING (WAVE FIX)
+// =========================
+
+// Gallery buttons (no inline onclick needed)
+document.querySelectorAll(".art-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const img = btn.querySelector("img");
+    openModal(img);
+  });
+
+  // allow Enter/Space activation (extra safety)
+  btn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const img = btn.querySelector("img");
+      openModal(img);
+    }
+  });
+});
+
+
+// Lightbox controls
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.getElementById("close-btn");
+  const leftArrow = document.querySelector(".arrow.left");
+  const rightArrow = document.querySelector(".arrow.right");
+  const lightbox = document.getElementById("lightbox");
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn.setAttribute("tabindex", "0");
+  }
+
+  if (leftArrow) {
+    leftArrow.addEventListener("click", () => changeImage(-1));
+    leftArrow.setAttribute("tabindex", "0");
+  }
+
+  if (rightArrow) {
+    rightArrow.addEventListener("click", () => changeImage(1));
+    rightArrow.setAttribute("tabindex", "0");
+  }
+
+  // click outside image closes modal (optional UX improvement)
+  if (lightbox) {
+    lightbox.addEventListener("click", closeModal);
+    document.getElementById("lightbox-content")?.addEventListener("click", e => {
+      e.stopPropagation();
+    });
   }
 });
