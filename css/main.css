@@ -374,3 +374,30 @@ footer {
   outline: 2px solid var(--yellow);
   border-radius: 6px;
 }
+
+/* =========================
+   ABOUT ME BOX (CARD STYLE)
+   ========================= */
+
+.content {
+  max-width: 800px;
+  margin: 60px auto;         /* centers it */
+  padding: 40px;
+
+  background: white;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  line-height: 1.6;
+}
+
+/* optional: nicer typography spacing */
+.content h2,
+.content h3 {
+  margin-top: 20px;
+}
+
+.content ul {
+  padding-left: 20px;
+}
