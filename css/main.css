@@ -262,6 +262,19 @@ button {
   transform: translateY(0);
 }
 
+.art-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.art-btn img {
+  width: 100%;
+  display: block;
+}
+
 footer {
   background: #5982ba;
   color: white;
