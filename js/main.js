@@ -39,15 +39,44 @@ function resetAnimations() {
 // =========================
 // LIGHTBOX
 // =========================
-function openModal(src) {
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = src;
+let currentIndex = 0;
+let images = [];
+
+function openModal(imgElement) {
+  const lightbox = document.getElementById("lightbox");
+
+  // Get ALL images
+  images = Array.from(document.querySelectorAll(".gallery img"));
+
+  // Find index of clicked image
+  currentIndex = images.indexOf(imgElement);
+
+  showImage();
+
+  lightbox.style.display = "flex";
+}
+
+function showImage() {
+  const img = images[currentIndex];
+
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("caption-title").textContent = img.dataset.title || "";
+  document.getElementById("caption-year").textContent = img.dataset.year || "";
+  document.getElementById("caption-medium").textContent = img.dataset.medium || "";
+}
+
+function changeImage(direction) {
+  currentIndex += direction;
+
+  // Loop around
+  if (currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex >= images.length) currentIndex = 0;
+  showImage();
 }
 
 function closeModal() {
   document.getElementById("lightbox").style.display = "none";
 }
-
 
 // =========================
 // SMOOTH SCROLL (ANCHORS)
@@ -83,4 +112,14 @@ const observer = new IntersectionObserver((entries) => {
 artworks.forEach((art, index) => {
   art.style.transitionDelay = `${index * 0.05}s`;
   observer.observe(art);
+});
+
+document.addEventListener("keydown", function(e) {
+  const lightbox = document.getElementById("lightbox");
+
+  if (lightbox.style.display === "flex") {
+    if (e.key === "ArrowRight") changeImage(1);
+    if (e.key === "ArrowLeft") changeImage(-1);
+    if (e.key === "Escape") closeModal();
+  }
 });
