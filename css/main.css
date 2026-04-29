@@ -395,9 +395,20 @@ footer {
 /* optional: nicer typography spacing */
 .content h2,
 .content h3 {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .content ul {
   padding-left: 20px;
+}
+
+.content h2 {
+  font-family: "Parisienne", cursive;
+  text-align: center;
+}
+
+.content p {
+    text-align: center;
+font-family: "Arial";
+font-size: 20px;
 }
