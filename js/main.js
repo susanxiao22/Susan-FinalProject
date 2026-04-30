@@ -187,33 +187,41 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+// =========================
+// CONTACT FORM + POPUP
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const popup = document.getElementById("thank-you-popup");
+  const closePopupBtn = document.getElementById("close-popup-btn");
 
-  if (!form || !popup) {
-    console.log("Form or popup not found");
-    return;
-  }
+  if (!form || !popup) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email");
-    const name = document.getElementById("name");
-    const message = document.getElementById("message");
-
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
-
-    if (!name.value.trim()) return name.reportValidity();
-    if (!emailValid) return email.reportValidity();
-    if (!message.value.trim()) return message.reportValidity();
+    // let browser validate first
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     popup.classList.remove("hidden");
     form.reset();
   });
-});
 
-function closePopup() {
-  document.getElementById("thank-you-popup").classList.add("hidden");
-}
+  // ✅ NEW: close popup button fix
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+  }
+
+  // optional: click outside popup closes it
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.classList.add("hidden");
+    }
+  });
+});
