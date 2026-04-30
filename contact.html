@@ -52,20 +52,42 @@
     </div>
   </header>
 
-<section class="content">
-  <form>
-    <label>Name</label>
-    <input type="text" required>
+<section class="contact-layout">
 
-    <label>Email</label>
-    <input type="email" required>
+  <!-- LEFT SIDE -->
+  <div class="contact-social">
+    <h2>Connect with me</h2>
 
-    <label>Message</label>
-    <textarea required></textarea>
+    <a href="https://www.instagram.com/suuusanxiao/" target="_blank">╰┈➤ Instagram ˎˊ˗ </a>
+    <a href="https://x.com/" target="_blank">╰┈➤ Twitter ˎˊ˗ </a>
+    <a href="https://www.tiktok.com/en/" target="_blank">╰┈➤ TikTok ˎˊ˗ </a>
+  </div>
 
-    <button type="submit">Send</button>
-  </form>
+  <!-- RIGHT SIDE -->
+  <div class="contact-form">
+    <form>
+      <label>Name</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Message</label>
+      <textarea required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
 </section>
+
+<div id="thank-you-popup" class="popup hidden">
+  <div class="popup-card">
+    <h2>Thank You!</h2>
+    <p>Your message has been sent.</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
 
 <footer>
   <p>© 2026 Susan Xiao</p>

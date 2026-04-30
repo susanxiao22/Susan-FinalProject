@@ -454,3 +454,155 @@ footer {
 .content li {
   margin-bottom: 10px;
 }
+
+.contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  gap: 60px;
+}
+
+/* LEFT SIDE (social) */
+.contact-social {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-social h2 {
+  font-family: "Parisienne", cursive;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.contact-social a {
+  display: block;
+  padding: 14px 20px;
+  margin-bottom: 16px;
+
+  background: white;
+  border-radius: 20px;
+
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+
+  position: relative;
+
+  /* floating animation */
+  animation: floatCard 4s ease-in-out infinite;
+
+  transition: all 0.3s ease;
+}
+
+/* stagger the float so they move independently */
+.contact-social a:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.contact-social a:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* hover effect (stronger lift + glow) */
+.contact-social a:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 12px 25px rgba(59,130,246,0.35);
+}
+
+/* RIGHT SIDE (form) */
+.contact-form {
+  flex: 1;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  padding: 30px;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background: #5982ba;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #3b82f6;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.6);
+  z-index: 99999; /* 🔥 increase this */
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.3);
+
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  animation: popupFloat 4s ease-in-out infinite;
+}
+
+@keyframes popupFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
