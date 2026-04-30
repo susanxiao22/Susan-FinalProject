@@ -24,17 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Fleur+De+Leah&family=MonteCarlo&family=Noto+Nastaliq+Urdu:wght@400..700&family=Parisienne&family=Princess+Sofia&family=Stalemate&display=swap" rel="stylesheet">
 </head>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
 <body>
-
-<body>
- <body>
   <div class="top-bar">
     <nav>
       <h1>My Portfolio</h1>
@@ -51,47 +41,42 @@
       <h2>Contact</h2>
     </div>
   </header>
+  
+  <section class="contact-layout">
+    <div class="contact-social">
+        <h2>Connect with me</h2>
+        <a href="https://www.instagram.com/suuusanxiao/" target="_blank">╰┈➤ Instagram ˎˊ˗ </a>
+        <a href="https://x.com/" target="_blank">╰┈➤ Twitter ˎˊ˗ </a>
+        <a href="https://www.tiktok.com/en/" target="_blank">╰┈➤ TikTok ˎˊ˗ </a>
+    </div>
 
-<section class="contact-layout">
+    <div class="contact-form">
+        <form>
+        <label>Full Name</label>
+        <input type="text" required>
 
-  <!-- LEFT SIDE -->
-  <div class="contact-social">
-    <h2>Connect with me</h2>
+        <label>Valid Email Address</label>
+        <input type="email" required>
 
-    <a href="https://www.instagram.com/suuusanxiao/" target="_blank">╰┈➤ Instagram ˎˊ˗ </a>
-    <a href="https://x.com/" target="_blank">╰┈➤ Twitter ˎˊ˗ </a>
-    <a href="https://www.tiktok.com/en/" target="_blank">╰┈➤ TikTok ˎˊ˗ </a>
-  </div>
+        <label>Message</label>
+        <textarea required></textarea>
 
-  <!-- RIGHT SIDE -->
-  <div class="contact-form">
-    <form>
-      <label>Name</label>
-      <input type="text" required>
+        <button type="submit">Send</button>
+        </form>
+    </div>
+    </section>
 
-      <label>Email</label>
-      <input type="email" required>
+    <div id="thank-you-popup" class="popup hidden">
+    <div class="popup-card">
+        <h2>Thank You!</h2>
+        <p>Your message has been sent.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    </div>
 
-      <label>Message</label>
-      <textarea required></textarea>
-
-      <button type="submit">Send</button>
-    </form>
-  </div>
-
-</section>
-
-<div id="thank-you-popup" class="popup hidden">
-  <div class="popup-card">
-    <h2>Thank You!</h2>
-    <p>Your message has been sent.</p>
-    <button onclick="closePopup()">Close</button>
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 Susan Xiao</p>
-</footer>
+    <footer>
+    <p>© 2026 Susan Xiao</p>
+    </footer>
 
 </body>
 </html>
