@@ -147,7 +147,7 @@ nav a:active {
 }
 
 .filters button {
-  background: rgb(225, 149, 56);
+  background: #5982ba;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -159,9 +159,14 @@ nav a:active {
   transition: all 0.3s ease;
 }
 
+.filters button.active {
+  background: white;
+  color: #5982ba;
+}
+
 .filters button:hover {
   background: var(--yellow);
-  color: black;
+  color: rgb(0, 0, 0);
   transform: translateY(-2px); /* lift */
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
