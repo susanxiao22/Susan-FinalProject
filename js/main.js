@@ -1,24 +1,17 @@
-// =========================
-// FILTER FUNCTION + RESET ANIMATION
-// =========================
 function filterSelection(category) {
   let items = document.getElementsByClassName("art");
 
   for (let i = 0; i < items.length; i++) {
-    // Hide everything first
     items[i].style.display = "none";
 
-    // Show matching category
     if (category === "all" || items[i].classList.contains(category)) {
       items[i].style.display = "block";
     }
   }
 
-  // Reset scroll animations so they replay
   resetAnimations();
 }
 
-// Reset animation state
 function resetAnimations() {
   const artworks = document.querySelectorAll('.art');
 
@@ -26,39 +19,29 @@ function resetAnimations() {
     art.classList.remove('show');
   });
 
-  // Force reflow so animations can restart
   void document.body.offsetHeight;
 
-  // Re-observe elements
   artworks.forEach(art => {
     observer.observe(art);
   });
 }
 
-
-// =========================
-// LIGHTBOX
-// =========================
 let currentIndex = 0;
 let images = [];
 
 function openModal(imgElement) {
   const lightbox = document.getElementById("lightbox");
 
-  // Get ALL images
   images = Array.from(document.querySelectorAll(".gallery img"));
 
-  // Find index of clicked image
   currentIndex = images.indexOf(imgElement);
 
   showImage();
 
   lightbox.style.display = "flex";
 
-  // ✅ hide sticky header
   document.querySelector(".top-bar")?.classList.add("hide");
 
-  // accessibility: move focus into lightbox
   document.getElementById("close-btn")?.focus();
 }
 
@@ -74,7 +57,6 @@ function showImage() {
 function changeImage(direction) {
   currentIndex += direction;
 
-  // Loop around
   if (currentIndex < 0) currentIndex = images.length - 1;
   if (currentIndex >= images.length) currentIndex = 0;
 
@@ -83,15 +65,9 @@ function changeImage(direction) {
 
 function closeModal() {
   document.getElementById("lightbox").style.display = "none";
-
-  // ✅ show sticky header again
   document.querySelector(".top-bar")?.classList.remove("hide");
 }
 
-
-// =========================
-// SMOOTH SCROLL (ANCHORS)
-// =========================
 document.querySelectorAll("a").forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     if (this.hash !== "") {
@@ -103,10 +79,6 @@ document.querySelectorAll("a").forEach(anchor => {
   });
 });
 
-
-// =========================
-// SCROLL REVEAL ANIMATION
-// =========================
 const artworks = document.querySelectorAll('.art');
 
 const observer = new IntersectionObserver((entries) => {
@@ -124,10 +96,6 @@ artworks.forEach((art, index) => {
   observer.observe(art);
 });
 
-
-// =========================
-// KEYBOARD CONTROLS (LIGHTBOX)
-// =========================
 document.addEventListener("keydown", function(e) {
   const lightbox = document.getElementById("lightbox");
 
@@ -138,10 +106,6 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
-
-// =========================
-// ACCESSIBLE EVENT HANDLING
-// =========================
 document.querySelectorAll(".art-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const img = btn.querySelector("img");
@@ -157,10 +121,6 @@ document.querySelectorAll(".art-btn").forEach(btn => {
   });
 });
 
-
-// =========================
-// LIGHTBOX CONTROLS
-// =========================
 document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("close-btn");
   const leftArrow = document.querySelector(".arrow.left");
@@ -190,10 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-// =========================
-// CONTACT FORM + POPUP
-// =========================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const popup = document.getElementById("thank-you-popup");
@@ -234,10 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-// =========================
-// RIPPLE EFFECT (FIXED - NOW INSIDE DOM)
-// =========================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   if (!form) return;

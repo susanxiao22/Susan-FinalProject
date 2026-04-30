@@ -1,8 +1,8 @@
-lightbox:root {
-  --blue: #1e3a8a;
-  --light-blue: #3b82f6;
-  --yellow: #facc15;
-  --white: #ffffff;
+root {
+  blue: #1e3a8a;
+  light-blue: #3b82f6;
+  yellow: #facc15;
+  white: #ffffff;
 }
 
 .top-bar {
@@ -11,15 +11,11 @@ lightbox:root {
   display: flex;
   align-items: center;
   padding: 0 20px;
-
   position: sticky;
   top: 0;
   z-index: 10000;
-
-  /* keeps it solid while scrolling */
   background: #5982ba;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
+  box-shadow: 0 4px 12px #00000026;
 }
 
 .top-bar.hide {
@@ -31,7 +27,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: #333;
-
   background: linear-gradient(
     to bottom,
     #5982ba,
@@ -59,17 +54,16 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
 
 .hero-text h2 {
   font-size: 125px;
   font-family: "Parisienne", cursive;
   margin: 0;
-  text-shadow: 2px 2px 8px rgba(5, 34, 67, 0.884);
+  text-shadow: 2px 2px 8px #052243e1;
 }
 
-/* Nav */
 nav {
   display: flex;
   justify-content: space-between;
@@ -78,11 +72,10 @@ nav {
 }
 
 nav h1 {
-  color: white;
+  color: #ffffff;
   font-size: 30px;
   margin: 0;
   font-family: "Princess Sofia", cursive;
-
 }
 
 nav ul {
@@ -93,31 +86,29 @@ nav ul {
   padding: 0;
   font-family: "Princess Sofia", cursive;
   font-size: 20px;
-
 }
 
 nav a {
   display: inline-block;
   padding: 8px 16px;
-  background: white;
-  color: black;
+  background: #ffffff;
+  color: #000000;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 25px; /* rounded edges */
+  font-weight: 700;
+  border-radius: 25px; 
   transition: all 0.3s ease;
 }
 
-/* Hover animation */
 nav a:hover {
   background: var(--light-blue);
-  color: white;
-  transform: translateY(-2px); /* slight lift effect */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px #00000033;
 }
 
 nav a:active {
   transform: translateY(0);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px #00000033;
 }
 
 .gallery {
@@ -138,7 +129,6 @@ nav a:active {
   transform: scale(1.05);
 }
 
-/* Filters */
 .filters {
   text-align: center;
   margin: 20px; 
@@ -148,40 +138,37 @@ nav a:active {
 
 .filters button {
   background: #5982ba;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 10px 15px;
   margin: 5px;
   cursor: pointer;
   border-radius: 25px;
-
-  /* ADD THESE */
   transition: all 0.3s ease;
 }
 
 .filters button.active {
-  background: white;
-  color: #5982ba;
+  background: #ffffff;
+  color: hsl(215, 41%, 54%);
 }
 
 .filters button:hover {
   background: var(--yellow);
-  color: rgb(0, 0, 0);
-  transform: translateY(-2px); /* lift */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  color: #000000;
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 10px #00000033;
 }
 
 .filters button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px #00000033;
 }
-
 
 #lightbox {
   display: none;
   position: fixed;
-  z-index: 9999; /* 🔥 IMPORTANT */
-  background: rgba(0,0,0,0.9);
+  z-index: 9999; 
+  background: #000000e6;
   top: 0;
   left: 0;
   width: 100%;
@@ -191,20 +178,18 @@ nav a:active {
 }
 
 #lightbox-content {
-  display: flex;              /* 🔥 makes side-by-side */
+  display: flex;              
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 40px;
-
   max-width: 90%;
   max-height: 90%;
   margin: auto;
 }
 
-/* Image side */
 #lightbox img {
-  max-width: 60vw;           /* give image more priority */
+  max-width: 60vw;           
   max-height: 80vh;
   object-fit: contain;
   border-radius: 10px;
@@ -213,15 +198,14 @@ nav a:active {
 #lightbox-caption {
   max-width: 300px;
   text-align: left;
-  color: white;
+  color: #ffffff;
   font-family: "Princess Sofia", cursive;
 }
 
 #lightbox-caption {
-  border-left: 2px solid rgba(255,255,255,0.3);
+  border-left: 2px solid #ffffff4d;
   padding-left: 20px;
 }
-
 
 #lightbox-caption h3 {
   font-size: 32px;
@@ -247,7 +231,6 @@ nav a:active {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Content */
 .content {
   padding: 20px;
 }
@@ -256,7 +239,7 @@ nav a:active {
 form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 700;
 }
 
 input, textarea {
@@ -265,7 +248,7 @@ input, textarea {
 }
 
 button {
-  background: white;
+  background: #ffffff;
   border: none;
   padding: 10px;
 }
@@ -296,19 +279,19 @@ button {
 
 footer {
   background: #5982ba;
-  color: white;
-  border-top: 2px solid rgba(255,255,255,0.35);
+  color: #ffffff;
+  border-top: 2px solid #ffffff59;
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
   margin-top: 60px;
   font-size: 25px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
   #lightbox-content {
-    flex-direction: column;  /* stack again on mobile */
+    flex-direction: column;  
     text-align: center;
   }
 
@@ -323,137 +306,107 @@ footer {
   }
 }
 
-/* Close button */
-/* =========================
-   CLOSE BUTTON (X)
-   ========================= */
-
 #close-btn {
   position: fixed;
   top: 20px;
   right: 30px;
-
   background: transparent;
   border: none;
   box-shadow: none;
-
-  color: white;
+  color: #ffffff;
   font-size: 40px;
   cursor: pointer;
   z-index: 10002;
-
   transition: color 0.2s ease;
 }
 
-/* hover effect */
 #close-btn:hover {
   color: var(--yellow);
 }
 
-/* keyboard accessibility */
 #close-btn:focus-visible {
   outline: 2px solid var(--yellow);
   border-radius: 6px;
 }
 
-/* =========================
-   LIGHTBOX ARROWS (SIDES)
-   ========================= */
-
 .arrow {
-  position: fixed;        /* key change */
+  position: fixed;       
   top: 50%;
   transform: translateY(-50%);
   z-index: 10001;
-
   background: transparent;
   border: none;
   box-shadow: none;
-
-  color: white;
+  color: #ffffff;
   font-size: 60px;
   cursor: pointer;
   user-select: none;
 }
 
-/* left side */
 .arrow.left {
   left: 20px;
 }
 
-/* right side */
 .arrow.right {
   right: 20px;
 }
 
-/* hover effect */
 .arrow:hover {
   color: var(--yellow);
 }
 
-/* keyboard focus */
 .arrow:focus-visible {
   outline: 2px solid var(--yellow);
   border-radius: 6px;
 }
 
-/* =========================
-   ABOUT ME BOX (CARD STYLE)
-   ========================= */
-
 .content {
   max-width: 800px;
   margin: 60px auto;
   padding: 40px;
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px #00000026;
   text-align: center;
 }
 
-
-/* Replace lists with centered text blocks */
 .content ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-
 .fun-facts {
-  margin-bottom: 10px;   /* overrides big spacing */
-  line-height: 1.8;      /* keeps it readable but tight */
+  margin-bottom: 10px;   
+  line-height: 1.8;      
 }
+
 .content {
   max-width: 800px;
   margin: 60px auto;
   padding: 40px;
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px #00000026;
   text-align: center;
 }
 
-/* Headings */
 .content h2,
 .content h3 {
   font-family: "Parisienne", cursive;
 }
 
-/* Main title */
 .content h2 {
   font-size: 50px;
   margin-bottom: 20px;
 }
 
-/* Section titles */
 .content h3 {
   font-size: 40px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-/* Body text */
 .content p,
 .content li {
   font-family: "Noto Nastaliq Urdu", serif;
@@ -461,7 +414,6 @@ footer {
   line-height: 1.6;
 }
 
-/* spacing */
 .content p {
   margin-bottom: 20px;
 }
@@ -486,7 +438,6 @@ footer {
   gap: 60px;
 }
 
-/* LEFT SIDE (social) */
 .contact-social {
   flex: 1;
   text-align: left;
@@ -502,26 +453,18 @@ footer {
   display: block;
   padding: 14px 20px;
   margin-bottom: 16px;
-
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
-
   text-decoration: none;
   color: #333;
   font-size: 18px;
   font-family: "Princess Sofia", cursive;
-
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-
+  box-shadow: 0 8px 18px #0000001f;
   position: relative;
-
-  /* floating animation */
   animation: floatCard 4s ease-in-out infinite;
-
   transition: all 0.3s ease;
 }
 
-/* stagger the float so they move independently */
 .contact-social a:nth-child(2) {
   animation-delay: 0.5s;
 }
@@ -530,28 +473,22 @@ footer {
   animation-delay: 1s;
 }
 
-/* hover effect (stronger lift + glow) */
 .contact-social a:hover {
   transform: translateY(-6px) scale(1.03);
   background: #3b82f6;
-  color: white;
-  box-shadow: 0 12px 25px rgba(59,130,246,0.35);
+  color: #ffffff;
+  box-shadow: 0 12px 25px #3b82f659;
 }
 
-/* RIGHT SIDE (form) */
 .contact-form {
   flex: 1;
-
-  /* glass effect */
-  background: rgba(255, 255, 255, 0.25);
+  background: #ffffff40;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-
+  border: 1px solid #ffffff4d;
   padding: 30px;
   border-radius: 20px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px #00000026;
 }
 
 @keyframes floatCard {
@@ -559,7 +496,6 @@ footer {
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0px); }
 }
-
 
 .contact-form form {
   display: flex;
@@ -575,32 +511,26 @@ footer {
 
 .contact-form button {
   background: #5982ba;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 12px;
   cursor: pointer;
   border-radius: 8px;
-
   transition: all 0.15s ease;
-  font-weight: bold; 
+  font-weight: 700; 
   font-size: 20px; 
-
-  /* gives depth */
 }
 
-/* hover (slight lift) */
 .contact-form button:hover {
   background: #3b82f6;
   transform: translateY(-2px);
   box-shadow: 0 7px 0 #2563eb;
 }
 
-/* click/press effect */
 .contact-form button:active {
   transform: translateY(3px);
   box-shadow: 0 2px 0 #2563eb;
-    transition: all 0.05s ease;
-
+  transition: all 0.05s ease;
 }
 
 .contact-form button:hover {
@@ -613,24 +543,18 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* 🔥 blue gradient overlay */
   background: radial-gradient(
-    circle at center,
-    rgba(59,130,246,0.25),
-    rgba(30,58,138,0.6)
+  circle at center,
+    #3b82f640,
+    #1e3a8a99
   );
-
   z-index: 99999;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
-    backdrop-filter: blur(6px);
-
+  backdrop-filter: blur(6px);
 }
 
-/* visible */
 .popup:not(.hidden) {
   opacity: 1;
   pointer-events: auto;
@@ -644,15 +568,15 @@ footer {
   0% {
     background: radial-gradient(
       circle at 40% 40%,
-      rgba(59,130,246,0.25),
-      rgba(30,58,138,0.6)
+      #3b82f640,
+      #1e3a8a99
     );
   }
   100% {
     background: radial-gradient(
       circle at 60% 60%,
-      rgba(96,165,250,0.3),
-      rgba(30,58,138,0.7)
+      #60a5fa4d,
+      #1e3a8ab3
     );
   }
 }
@@ -664,50 +588,39 @@ footer {
 
 .popup-card button {
   background: #5982ba;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
-
   transition: all 0.15s ease;
-
-  /* subtle depth */
 }
 
-/* hover = slight lift + brighter */
 .popup-card button:hover {
   background: #3b82f6;
   transform: translateY(-2px);
 }
 
-/* click = press down */
 .popup-card button:active {
   transform: translateY(2px);
 }
 
 .popup-card {
-  background: rgba(255, 255, 255, 0.25);
+  background: #ffffff40;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255,255,255,0.3);
-
+  border: 1px solid #ffffff4d;
   padding: 30px 40px;
   border-radius: 20px;
   text-align: center;
-
-  color: white;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-
+  color: #ffffff;
+  box-shadow: 0 10px 30px #00000033;
   transform: translateY(20px);
   opacity: 0;
-
   animation: popupFloat 4s ease-in-out infinite;
   transition: all 0.3s ease;
 }
 
-/* when popup is visible */
 .popup:not(.hidden) .popup-card {
   transform: translateY(0);
   opacity: 1;
@@ -721,15 +634,14 @@ footer {
 
 .contact-form button {
   position: relative;
-  overflow: hidden; /* required for ripple */
+  overflow: hidden; 
 }
 
-/* ripple circle */
 .contact-form button .ripple {
   position: absolute;
   border-radius: 50%;
   transform: scale(0);
-  background: rgba(255, 255, 255, 0.6);
+  background: #ffffff99;
   animation: rippleEffect 0.6s linear;
   pointer-events: none;
 }
@@ -741,7 +653,6 @@ footer {
   }
 }
 
-/* spinner */
 .button-loading {
   pointer-events: none;
   opacity: 0.8;
@@ -751,7 +662,7 @@ footer {
   content: "";
   width: 18px;
   height: 18px;
-  border: 3px solid white;
+  border: 3px solid #ffffff;
   border-top-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -765,4 +676,3 @@ footer {
     transform: rotate(360deg);
   }
 }
-
