@@ -55,6 +55,9 @@ function openModal(imgElement) {
 
   lightbox.style.display = "flex";
 
+  // ✅ hide sticky header
+  document.querySelector(".top-bar")?.classList.add("hide");
+
   // accessibility: move focus into lightbox
   document.getElementById("close-btn")?.focus();
 }
@@ -80,6 +83,9 @@ function changeImage(direction) {
 
 function closeModal() {
   document.getElementById("lightbox").style.display = "none";
+
+  // ✅ show sticky header again
+  document.querySelector(".top-bar")?.classList.remove("hide");
 }
 
 
@@ -113,7 +119,6 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.1
 });
 
-// Staggered animation delay + observer setup
 artworks.forEach((art, index) => {
   art.style.transitionDelay = `${index * 0.05}s`;
   observer.observe(art);
@@ -135,17 +140,14 @@ document.addEventListener("keydown", function(e) {
 
 
 // =========================
-// ACCESSIBLE EVENT HANDLING (WAVE FIX)
+// ACCESSIBLE EVENT HANDLING
 // =========================
-
-// Gallery buttons (no inline onclick needed)
 document.querySelectorAll(".art-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const img = btn.querySelector("img");
     openModal(img);
   });
 
-  // allow Enter/Space activation (extra safety)
   btn.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -156,7 +158,9 @@ document.querySelectorAll(".art-btn").forEach(btn => {
 });
 
 
-// Lightbox controls
+// =========================
+// LIGHTBOX CONTROLS
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("close-btn");
   const leftArrow = document.querySelector(".arrow.left");
@@ -178,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
     rightArrow.setAttribute("tabindex", "0");
   }
 
-  // click outside image closes modal (optional UX improvement)
   if (lightbox) {
     lightbox.addEventListener("click", closeModal);
     document.getElementById("lightbox-content")?.addEventListener("click", e => {
@@ -201,27 +204,61 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // let browser validate first
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    popup.classList.remove("hidden");
-    form.reset();
+    const button = form.querySelector("button");
+
+    button.classList.add("button-loading");
+
+    setTimeout(() => {
+      button.classList.remove("button-loading");
+
+      popup.classList.remove("hidden");
+      form.reset();
+    }, 1200);
   });
 
-  // ✅ NEW: close popup button fix
   if (closePopupBtn) {
     closePopupBtn.addEventListener("click", () => {
       popup.classList.add("hidden");
     });
   }
 
-  // optional: click outside popup closes it
   popup.addEventListener("click", (e) => {
     if (e.target === popup) {
       popup.classList.add("hidden");
     }
+  });
+});
+
+
+// =========================
+// RIPPLE EFFECT (FIXED - NOW INSIDE DOM)
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const button = form.querySelector("button");
+
+  if (!button) return;
+
+  button.addEventListener("click", function (e) {
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.offsetX - radius}px`;
+    circle.style.top = `${e.offsetY - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) ripple.remove();
+
+    button.appendChild(circle);
   });
 });
