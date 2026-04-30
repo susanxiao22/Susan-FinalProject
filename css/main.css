@@ -278,10 +278,11 @@ button {
 footer {
   background: #5982ba;
   color: white;
-  border-top: 2px solid #5982ba;
-  height: 20px; 
+  border-top: 2px solid rgba(255,255,255,0.35);
   padding: 20px;
   text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 60px;
 }
 
 @media (max-width: 768px) {
@@ -381,34 +382,75 @@ footer {
 
 .content {
   max-width: 800px;
-  margin: 60px auto;         /* centers it */
+  margin: 60px auto;
   padding: 40px;
-
   background: white;
   border-radius: 20px;
-
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-  line-height: 1.6;
-}
-
-/* optional: nicer typography spacing */
-.content h2,
-.content h3 {
-  margin-top: 10px;
-}
-
-.content ul {
-  padding-left: 20px;
-}
-
-.content h2 {
-  font-family: "Parisienne", cursive;
   text-align: center;
 }
 
+
+/* Replace lists with centered text blocks */
+.content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.fun-facts {
+  margin-bottom: 10px;   /* overrides big spacing */
+  line-height: 1.8;      /* keeps it readable but tight */
+}
+.content {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* Headings */
+.content h2,
+.content h3 {
+  font-family: "Parisienne", cursive;
+}
+
+/* Main title */
+.content h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+/* Section titles */
+.content h3 {
+  font-size: 40px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* Body text */
+.content p,
+.content li {
+  font-family: "Noto Nastaliq Urdu", serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* spacing */
 .content p {
-    text-align: center;
-font-family: "Arial";
-font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content li {
+  margin-bottom: 10px;
 }
