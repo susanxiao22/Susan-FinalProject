@@ -143,11 +143,11 @@ nav a:active {
   text-align: center;
   margin: 20px; 
   font-family: "Princess Sofia", cursive;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .filters button {
-  background: rgb(224, 161, 59);
+  background: rgb(225, 149, 56);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -297,7 +297,8 @@ footer {
   text-align: center;
   font-family: Arial, sans-serif;
   margin-top: 60px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -576,6 +577,8 @@ footer {
   border-radius: 8px;
 
   transition: all 0.15s ease;
+  font-weight: bold; 
+  font-size: 20px; 
 
   /* gives depth */
 }
